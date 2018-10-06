@@ -1,5 +1,5 @@
 # ebabel-keyboard-controls
-[![Build Status](https://travis-ci.org/ebabel-eu/ebabel-keyboard-controls.svg?branch=master)](https://travis-ci.org/ebabel-eu/ebabel-keyboard-controls)
+[![Build Status](https://travis-ci.org/ebabel-games/ebabel-keyboard-controls.svg?branch=master)](https://travis-ci.org/ebabel-games/ebabel-keyboard-controls)
 
 Update the position and rotation of the current player camera based on keyboard keys pressed up or down.
 
