@@ -1,8 +1,5 @@
 'use strict';
 
-const moveSpeed = 10;
-const turnSpeed = 2;
-
 /**
  * `updatePlayerPositionRotation`
  * Update the position and rotation of the current player camera.
@@ -11,23 +8,23 @@ const turnSpeed = 2;
  */
 const updatePlayerPositionRotation = (camera, dataStore) => {
   if (dataStore.moveForward) {
-    camera.translateZ(-moveSpeed);
+    camera.translateZ(-dataStore.moveSpeed);
   }
 
   if (dataStore.moveBackward) {
-    camera.translateY(-moveSpeed / 3);
+    camera.translateY(-dataStore.moveSpeed / 3);
   }
 
   if (dataStore.turnLeft) {
-    camera.rotation.y += turnSpeed * Math.PI / 180;
+    camera.rotation.y += dataStore.turnSpeed * Math.PI / 180;
   }
 
   if (dataStore.turnRight) {
-    camera.rotation.y -= turnSpeed * Math.PI / 180;
+    camera.rotation.y -= dataStore.turnSpeed * Math.PI / 180;
   }
 
   if (dataStore.moveUp) {
-    camera.translateY(moveSpeed / 2);
+    camera.translateY(dataStore.moveSpeed / 2);
   }
 
   dataStore.player.state.position = [camera.position.x, camera.position.y, camera.position.z];
