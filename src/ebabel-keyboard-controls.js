@@ -36,8 +36,8 @@ const updatePlayerPositionRotation = (camera, dataStore) => {
     camera.translateY(moveSpeed / 2);
   }
 
-  dataStore.player.state.position = [camera.position.x, camera.position.y, camera.position.z];
-  dataStore.player.state.rotation = [camera.rotation.x, camera.rotation.y, camera.rotation.z];
+  dataStore.player.position = [camera.position.x, camera.position.y, camera.position.z];
+  dataStore.player.rotation = [camera.rotation.x, camera.rotation.y, camera.rotation.z];
 
   // Return whether the player has moved.
   return moveForward || moveBackward || turnLeft || turnRight || moveUp;

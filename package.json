@@ -1,6 +1,6 @@
 {
   "name": "ebabel-keyboard-controls",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Update the position and rotation of the current player camera based on keyboard keys pressed up or down.",
   "main": "index.js",
   "engines": {

@@ -1,6 +1,9 @@
 # Changelog of ebabel-keyboard-controls
 
-## [2.0.1](https://github.com/ebabel-games/ebabel-keyboard-controls/releases/tag/v2.0.0)
+## [3.0.0](https://github.com/ebabel-games/ebabel-keyboard-controls/releases/tag/v3.0.0)
+- Remove player state property and use main player object instead.
+
+## [2.0.1](https://github.com/ebabel-games/ebabel-keyboard-controls/releases/tag/v2.0.1)
 - Move variables back in module scope.
 
 ## [2.0.0](https://github.com/ebabel-games/ebabel-keyboard-controls/releases/tag/v2.0.0)
