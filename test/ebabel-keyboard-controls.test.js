@@ -11,6 +11,12 @@ beforeEach(() => {
   THREE = mockTHREE;
   camera = new THREE.PerspectiveCamera();
   dataStore = mockDataStore;
+
+  dataStore.moveForward = false;
+  dataStore.moveBackward = false;
+  dataStore.turnLeft = false;
+  dataStore.turnRight = false;
+  dataStore.moveUp = false;
 });
 
 test('keyboardControls returns something other than undefined.', () => {

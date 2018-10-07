@@ -33,10 +33,14 @@ const updatePlayerPositionRotation = (camera, dataStore) => {
   dataStore.player.state.position = [camera.position.x, camera.position.y, camera.position.z];
   dataStore.player.state.rotation = [camera.rotation.x, camera.rotation.y, camera.rotation.z];
 
-  console.log( moveForward || moveBackward || turnLeft || turnRight || moveUp); /* eslint no-console: 0 */
+  const hasPlayerMoved = dataStore.moveForward
+    || dataStore.moveBackward
+    || dataStore.turnLeft
+    || dataStore.turnRight
+    || dataStore.moveUp;
 
   // Return whether the player has moved.
-  return moveForward || moveBackward || turnLeft || turnRight || moveUp;
+  return hasPlayerMoved;
 };
 
 /**
@@ -56,26 +60,26 @@ const keyboardControls = (dataStore) => {
     switch (keyCode) {
       case 38: // Up arrow.
       case 87: // W
-        moveForward = enable;
+        dataStore.moveForward = enable;
         break;
 
       case 40: // Down arrow.
       case 83: // S
-        moveBackward = enable;
+        dataStore.moveBackward = enable;
         break;
 
       case 37: // Left arrow.
       case 65: // A
-        turnLeft = enable;
+        dataStore.turnLeft = enable;
         break;
 
       case 39: // Right arrow.
       case 68: // D
-        turnRight = enable;
+        dataStore.turnRight = enable;
         break;
 
       case 32: // Space bar.
-        moveUp = enable;
+        dataStore.moveUp = enable;
         break;
     }
   };
