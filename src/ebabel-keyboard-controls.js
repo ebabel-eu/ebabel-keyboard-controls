@@ -1,11 +1,5 @@
 'use strict';
 
-let moveForward;
-let moveBackward;
-let turnLeft;
-let turnRight;
-let moveUp;
-
 const moveSpeed = 10;
 const turnSpeed = 2;
 
@@ -16,28 +10,30 @@ const turnSpeed = 2;
  * @param {Object} dataStore - Central store of state data.
  */
 const updatePlayerPositionRotation = (camera, dataStore) => {
-  if (moveForward) {
+  if (dataStore.moveForward) {
     camera.translateZ(-moveSpeed);
   }
 
-  if (moveBackward) {
+  if (dataStore.moveBackward) {
     camera.translateY(-moveSpeed / 3);
   }
 
-  if (turnLeft) {
+  if (dataStore.turnLeft) {
     camera.rotation.y += turnSpeed * Math.PI / 180;
   }
 
-  if (turnRight) {
+  if (dataStore.turnRight) {
     camera.rotation.y -= turnSpeed * Math.PI / 180;
   }
 
-  if (moveUp) {
+  if (dataStore.moveUp) {
     camera.translateY(moveSpeed / 2);
   }
 
   dataStore.player.state.position = [camera.position.x, camera.position.y, camera.position.z];
   dataStore.player.state.rotation = [camera.rotation.x, camera.rotation.y, camera.rotation.z];
+
+  console.log( moveForward || moveBackward || turnLeft || turnRight || moveUp); /* eslint no-console: 0 */
 
   // Return whether the player has moved.
   return moveForward || moveBackward || turnLeft || turnRight || moveUp;
