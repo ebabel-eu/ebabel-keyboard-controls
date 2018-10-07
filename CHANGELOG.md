@@ -1,5 +1,8 @@
 # Changelog of ebabel-keyboard-controls
 
+## [2.0.1](https://github.com/ebabel-games/ebabel-keyboard-controls/releases/tag/v2.0.0)
+- Move variables back in module scope.
+
 ## [2.0.0](https://github.com/ebabel-games/ebabel-keyboard-controls/releases/tag/v2.0.0)
 - Moved several variables out of scope from module and into dataStore.
 

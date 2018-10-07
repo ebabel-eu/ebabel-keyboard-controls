@@ -1,5 +1,14 @@
 'use strict';
 
+let moveForward;
+let moveBackward;
+let turnLeft;
+let turnRight;
+let moveUp;
+
+const moveSpeed = 10;
+const turnSpeed = 2;
+
 /**
  * `updatePlayerPositionRotation`
  * Update the position and rotation of the current player camera.
@@ -7,37 +16,31 @@
  * @param {Object} dataStore - Central store of state data.
  */
 const updatePlayerPositionRotation = (camera, dataStore) => {
-  if (dataStore.moveForward) {
-    camera.translateZ(-dataStore.moveSpeed);
+  if (moveForward) {
+    camera.translateZ(-moveSpeed);
   }
 
-  if (dataStore.moveBackward) {
-    camera.translateY(-dataStore.moveSpeed / 3);
+  if (moveBackward) {
+    camera.translateY(-moveSpeed / 3);
   }
 
-  if (dataStore.turnLeft) {
-    camera.rotation.y += dataStore.turnSpeed * Math.PI / 180;
+  if (turnLeft) {
+    camera.rotation.y += turnSpeed * Math.PI / 180;
   }
 
-  if (dataStore.turnRight) {
-    camera.rotation.y -= dataStore.turnSpeed * Math.PI / 180;
+  if (turnRight) {
+    camera.rotation.y -= turnSpeed * Math.PI / 180;
   }
 
-  if (dataStore.moveUp) {
-    camera.translateY(dataStore.moveSpeed / 2);
+  if (moveUp) {
+    camera.translateY(moveSpeed / 2);
   }
 
   dataStore.player.state.position = [camera.position.x, camera.position.y, camera.position.z];
   dataStore.player.state.rotation = [camera.rotation.x, camera.rotation.y, camera.rotation.z];
 
-  const hasPlayerMoved = dataStore.moveForward
-    || dataStore.moveBackward
-    || dataStore.turnLeft
-    || dataStore.turnRight
-    || dataStore.moveUp;
-
   // Return whether the player has moved.
-  return hasPlayerMoved;
+  return moveForward || moveBackward || turnLeft || turnRight || moveUp;
 };
 
 /**
@@ -57,26 +60,26 @@ const keyboardControls = (dataStore) => {
     switch (keyCode) {
       case 38: // Up arrow.
       case 87: // W
-        dataStore.moveForward = enable;
+        moveForward = enable;
         break;
 
       case 40: // Down arrow.
       case 83: // S
-        dataStore.moveBackward = enable;
+        moveBackward = enable;
         break;
 
       case 37: // Left arrow.
       case 65: // A
-        dataStore.turnLeft = enable;
+        turnLeft = enable;
         break;
 
       case 39: // Right arrow.
       case 68: // D
-        dataStore.turnRight = enable;
+        turnRight = enable;
         break;
 
       case 32: // Space bar.
-        dataStore.moveUp = enable;
+        moveUp = enable;
         break;
     }
   };
